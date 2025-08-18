@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Flask Authentication Web App {% endblock %}</title>
+    {% block style %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <!-- Navbar content Here -->
+        </div>
+
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>

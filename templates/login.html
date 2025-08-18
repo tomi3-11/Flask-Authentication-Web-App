@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Login - Flask Authentication Web App{% endblock %} 
+
+{% block content %}
+
+<div class="login-page">
+    <h3 class="title">Login</h3>
+    <div class="box">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+        {% endwith %}
+
+        <form action="/login" method="POST">
+            <div class="field">
+                <label for="username">User Name: </label>
+                <input type="text" class="input" name="username" placeholder="Your username" autofocus=""><br>
+                <label for="password">Password: </label>
+                <input type="password" class="input" name="password" placeholder="Your password"><br>
+                <label class="checkbox">
+                    <input type="checkbox" name="remember"> Remember me 
+                </label>
+            </div>
+            <div class="btn">
+                <button class="login-btn">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{5 endblock %}
