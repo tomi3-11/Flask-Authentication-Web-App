@@ -1,1 +1,33 @@
 {% extends 'base.html' %}
+
+{% block title %}Registration - Flask Weather app {% endblock %}
+
+{% block content %}
+
+<div class="register-page">
+    <h3 class="title">Sign Up</h3>
+    <div class="box">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="notification">
+            {{ messages[0] }}
+        </div>
+        {% endif %}
+        {% endwith %}
+        
+        <form action="/register" method="POST">
+            <div class="field">
+                <label for="username">User Name: </label>
+                <input type="text" name="username" class="input" placeholder="Username" autofocus=""><br>
+                <label for="password">Password</label>
+                <input type="password" name="password" class="input" placeholder="Password"> <br>
+            </div>
+
+            <div class="btn">
+                <button class="register-btn">Sign Up</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
