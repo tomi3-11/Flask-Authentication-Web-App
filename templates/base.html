@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Flask Authentication Web App {% endblock %}</title>
     {% block style %}{% endblock %}
 </head>
+
 <body>
     <div class="container">
         <div class="navbar">
             <!-- Navbar content Here -->
+
+            <div class="navbar-end">
+                <a href="{{ url_for('index') }}" class="navbar-item">
+                    Home
+                </a>
+                {% if current_user.is_authenticated %}
+                <a href="{{ url_for('profile') }}" class="navbar-item">
+                    Profile
+                </a>
+                <a href="{{ url_for('logout') }}" class="navbar-item">
+                    Logout
+                </a>
+                {% else %}
+                <a href="{{ url_for('login') }}" class="navbar-item">
+                    Login
+                </a>
+                <a href="{{ url_for('register') }}" class="navbar-item">
+                    Register
+                </a>
+                {% endif %}
+            </div>
         </div>
 
         <div class="content">
@@ -17,4 +40,5 @@
         </div>
     </div>
 </body>
+
 </html>
