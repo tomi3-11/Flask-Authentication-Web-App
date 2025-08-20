@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Flask Authentication Web App {% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css')}}">
     {% block style %}{% endblock %}
 </head>
 
@@ -13,10 +14,10 @@
         <div class="navbar">
             <!-- Navbar content Here -->
              <div class="navbar-start">
-                <div class="title">AUTH</div>
-                <div class="logo">
-                    <img src="#" alt="">
+                 <div class="logo">
+                     <img src="{{ url_for('static', filename='images/logo.png')}}" alt="">
                 </div>
+                <div class="title">AUTH</div>
              </div>
 
             <div class="navbar-end">

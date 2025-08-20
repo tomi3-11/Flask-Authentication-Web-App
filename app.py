@@ -29,6 +29,7 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
+# Home page.
 @app.route('/')
 def index():
     return render_template('index.html')

@@ -1,0 +1,62 @@
+/* base styling for the Navbar mostly */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 0 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 60px;
+    background: #333;
+    color: white;
+    padding: 0 20px;
+}
+
+.navbar-start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto 0;
+    gap: 0.6rem;
+}
+
+.logo {
+    /* background: #fff; */
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.logo img {
+    height: 20px;
+}
+
+.navbar-end {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2rem;
+    margin: 0 4rem;
+}
+
+.navbar-item {
+    text-decoration: none;
+    color: white;
+    background: gray;
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px;
+}
+
+.navbar-item:hover {
+    background: none;
+}
+
+.content {
+    padding-top: 4rem;
+}

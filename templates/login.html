@@ -2,10 +2,16 @@
 
 {% block title %}Login - Flask Authentication Web App{% endblock %} 
 
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+{% endblock %}
+
 {% block content %}
 
+<div class="container-log">
+
 <div class="login-page">
-    <h3 class="title">Login</h3>
+    <h3 class="title-l">Login</h3>
     <div class="box">
         {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -17,9 +23,9 @@
 
         <form action="/login" method="POST">
             <div class="field">
-                <label for="username">User Name: </label>
+                <label for="username">User Name </label><br>
                 <input type="text" class="input" name="username" placeholder="Your username" autofocus=""><br>
-                <label for="password">Password: </label>
+                <label for="password">Password </label><br>
                 <input type="password" class="input" name="password" placeholder="Your password"><br>
                 <label class="checkbox">
                     <input type="checkbox" name="remember"> Remember me 
@@ -30,6 +36,8 @@
             </div>
         </form>
     </div>
+</div>
+
 </div>
 
 {% endblock %}
