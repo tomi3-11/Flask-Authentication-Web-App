@@ -60,3 +60,30 @@
 .content {
     padding-top: 4rem;
 }
+
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px 16px;
+    text-decoration: none;
+    font-weight: 500;
+    color: #444;
+    transition: background 0.2s ease;
+}
+.google-btn:hover {
+    background: #f7f7f7;
+}
+.google-icon {
+    width: 20px;
+    height: 20px;
+}
+.divider {
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}

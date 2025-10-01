@@ -18,15 +18,27 @@
         <form action="/register" method="POST">
             <div class="field">
                 <label for="username">User Name: </label>
-                <input type="text" name="username" class="input" placeholder="Username" autofocus=""><br>
+                <input type="text" name="username" class="input" placeholder="Username" autofocus="" required><br>
+                <label for="email">Email: </label>
+                <input type="text" name="email" class="input" placeholder="Email" autofocus="" required><br>
                 <label for="password">Password</label>
-                <input type="password" name="password" class="input" placeholder="Password"> <br>
+                <input type="password" name="password" class="input" placeholder="Password" required> <br>
             </div>
 
             <div class="btn">
-                <button class="register-btn">Sign Up</button>
+                <button type="submit" class="register-btn">Sign Up</button>
             </div>
         </form>
+
+        <hr class="divider">
+
+        <!-- Google OAuth Sign Up -->
+        <div class="oauth-btns">
+            <a href="{{ url_for('auth_login') }}" class="google-btn">
+                <img src="{{ url_for('static', filename='images/google.png') }}" alt="Google logo" class="google-icon">
+                Sign Up with Google
+            </a>
+        </div>
     </div>
 </div>
 
