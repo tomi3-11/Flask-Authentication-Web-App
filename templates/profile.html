@@ -4,65 +4,99 @@
 
 {% block style %}
 <style>
+    body {
+        background: #f0f2f5;
+        font-family: Arial, sans-serif;
+    }
+
     .profile-container {
-        max-width: 800px;
-        margin: 30px auto;
-        border: 1px solid #ddd;
+        max-width: 700px;
+        margin: 40px auto;
         border-radius: 10px;
         overflow: hidden;
         background: #fff;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+
+    .welcome-message {
+        text-align: center;
+        padding: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        background: #1877f2;
+        color: white;
     }
 
     .cover-photo {
         width: 100%;
-        height: 200px;
+        height: 220px;
         background: url("{{ url_for('static', filename='images/cover.jpg') }}") center/cover no-repeat;
-    }
-
-    .profile-header {
         position: relative;
-        padding: 20px;
-        text-align: center;
     }
 
     .profile-pic {
         width: 150px;
         height: 150px;
         border-radius: 50%;
-        border: 4px solid white;
+        border: 5px solid #fff;
         position: absolute;
-        top: -75px;
+        bottom: -75px;
         left: 50%;
         transform: translateX(-50%);
         background: #fff;
+        object-fit: cover;
+    }
+
+    .profile-details {
+        text-align: center;
+        padding: 90px 20px 20px;
     }
 
     .profile-name {
-        margin-top: 90px;
-        font-size: 26px;
+        font-size: 24px;
         font-weight: bold;
+        color: #1c1e21;
+        margin-bottom: 5px;
     }
 
     .profile-email {
-        color: gray;
+        color: #65676b;
         font-size: 16px;
         margin-bottom: 10px;
     }
 
-    .profile-actions {
+    .followers {
+        font-size: 15px;
+        color: #65676b;
+        margin-bottom: 20px;
+    }
+
+    .profile-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        padding: 10px 0;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
         margin: 15px 0;
+    }
+
+    .profile-tabs a {
+        text-decoration: none;
+        font-weight: bold;
+        color: #1877f2;
+        font-size: 15px;
     }
 
     .btn-logout {
         background: #1877f2;
         color: white;
-        padding: 8px 15px;
+        padding: 10px 20px;
         border-radius: 6px;
         text-decoration: none;
-        font-size: 14px;
+        font-size: 15px;
         font-weight: bold;
-        transition: 0.3s;
+        transition: background 0.3s;
     }
 
     .btn-logout:hover {
@@ -73,25 +107,39 @@
 
 {% block content %}
 <div class="profile-container">
-    <!-- Cover Photo -->
-    <div class="cover-photo"></div>
+    <!-- Welcome Message -->
+    <div class="welcome-message">
+        👋 Welcome back, {{ name }}!
+    </div>
 
-    <!-- Profile Header -->
-    <div class="profile-header">
+    <!-- Cover Photo -->
+    <div class="cover-photo">
         {% if picture %}
         <img src="{{ picture }}" alt="Profile picture" class="profile-pic">
         {% else %}
         <img src="{{ url_for('static', filename='images/default-avatar.png') }}" alt="Profile picture" class="profile-pic">
         {% endif %}
+    </div>
 
+    <!-- Profile Details -->
+    <div class="profile-details">
         <div class="profile-name">{{ name }}</div>
         {% if email %}
         <div class="profile-email">{{ email }}</div>
         {% endif %}
 
-        <div class="profile-actions">
-            <a href="{{ url_for('logout') }}" class="btn-logout">Log Out</a>
+        <!-- Hardcoded Followers -->
+        <div class="followers">1.2k followers • 500 following</div>
+
+        <!-- Tabs -->
+        <div class="profile-tabs">
+            <a href="#">Posts</a>
+            <a href="#">About</a>
+            <a href="#">Friends</a>
+            <a href="#">Photos</a>
         </div>
+
+        <a href="{{ url_for('logout') }}" class="btn-logout">Log Out</a>
     </div>
 </div>
 {% endblock %}
