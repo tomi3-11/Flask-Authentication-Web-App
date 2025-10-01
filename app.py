@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'My-Secret-Key_Here'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -72,7 +72,7 @@ def auth():
     token = google.authorize_access_token()
     
     # Get user info from google
-    user_info = google.parse_id_token(token)
+    user_info = google.userinfo()
 
     
     user = User.query.filter_by(google_id=user_info['sub']).first()

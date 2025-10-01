@@ -4,3 +4,6 @@
 
 # environment variable
 .env
+
+# DB
+/instance
